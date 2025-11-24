@@ -1,0 +1,14 @@
+POST http://localhost:3001/api/quizes 
+content-type: application/json
+
+  {
+    "id": "0",
+    "question": "In which fast food chain can you order a Jamocha Shake?",
+    "correct_answer": "Arbys",
+    "answers": [
+      "McDonalds",
+      "Burger King",
+      "Wendys",
+      "Arbys"
+    ]
+  }
