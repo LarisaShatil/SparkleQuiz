@@ -1,4 +1,6 @@
-const logger = (req, res, next) => {
+const logger = require('./logger')
+
+const requestLogger = (req, res, next) => {
   console.log('Method:', req.method)
   console.log('Path:  ', req.path)
   console.log('Body:  ', req.body)
@@ -6,4 +8,4 @@ const logger = (req, res, next) => {
   next()
 }
 
-module.exports = logger
+module.exports = requestLogger
