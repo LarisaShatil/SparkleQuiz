@@ -18,7 +18,8 @@ const quizSchema = mongoose.Schema({
       },
       message: 'Answers must contain 4 items'
     }
-  }
+  },
+  category: String
 })
 
 quizSchema.set('toJSON', {

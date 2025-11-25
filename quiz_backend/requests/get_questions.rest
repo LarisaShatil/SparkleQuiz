@@ -1,1 +1,1 @@
-GET http://localhost:3001/api/quizes
+GET http://localhost:3001/api/quizzes

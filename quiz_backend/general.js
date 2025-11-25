@@ -1,6 +1,5 @@
 const general = [
   {
-    "id": "1",
     "question": "Who is depicted on the US hundred dollar bill?",
     "correct_answer": "Benjamin Franklin",
     "answers": [
@@ -9,9 +8,9 @@ const general = [
       "Thomas Jefferson",
       "Benjamin Franklin"
     ],
+    "category": "general",
   },
   {
-    "id": "2",
     "question": "In which fast food chain can you order a Jamocha Shake?",
     "correct_answer": "Arby’s",
     "answers": [
@@ -20,9 +19,9 @@ const general = [
       "Wendy’s",
       "Arby’s"
     ],
+    "category": "general",
   },
   {
-    "id": "3",
     "question": "What element has the chemical symbol Kr?",
     "correct_answer": "Krypton",
     "answers": [
@@ -31,9 +30,9 @@ const general = [
       "Curium",
       "Krypton"
     ],
+    "category": "general",
   },
   {
-    "id": "4",
     "question": "When was the Playstation 3 released?",
     "correct_answer": "November 11, 2006",
     "answers": [
@@ -42,9 +41,9 @@ const general = [
       "July 16, 2006",
       "November 11, 2006"
     ],
+    "category": "general",
   },
   {
-    "id": "5",
     "question": "In the English language, what is the name of the “&” character?",
     "correct_answer": "Ampersand",
     "answers": [
@@ -53,6 +52,7 @@ const general = [
       "Obelus",
       "Ampersand"
     ],
+    "category": "general",
   },
   {
     "question": "What is the famous Papa John’s last name?",
@@ -63,6 +63,7 @@ const general = [
       "ANDERSON",
       "Schnatter"
     ],
+    "category": "general",
   },
   {
     "question": "Which candy is NOT made by Mars?",
@@ -73,6 +74,7 @@ const general = [
       "Snickers",
       "Almond Joy"
     ],
+    "category": "general",
   },
   {
     "question": "Who is the youngest person to receive a Nobel Prize?",
@@ -83,6 +85,7 @@ const general = [
       "Yasser Arafat",
       "Malala Yousafzai"
     ],
+    "category": "general",
   },
   {
     "question": "What do the letters in the GMT time zone stand for?",
@@ -93,6 +96,7 @@ const general = [
       "Glasgow Man Time",
       "Greenwich Mean Time"
     ],
+    "category": "general",
   },
   {
     "question": "Which American president appears on a one dollar bill?",
@@ -103,6 +107,7 @@ const general = [
       "Benjamin Franklin",
       "George Washington"
     ],
+    "category": "general",
   },
   {
     "question": "Which type of cutlery is most suited for eating soup?",
@@ -113,6 +118,7 @@ const general = [
       "Chopsticks",
       "Spoon"
     ],
+    "category": "general",
   },
   {
     "question": "Which country, not including Japan, has the most people of Japanese descent?",
@@ -123,6 +129,7 @@ const general = [
       "United States of America",
       "Brazil"
     ],
+    "category": "general",
   },
   {
     "question": "What is the largest living species of penguin?",
@@ -133,6 +140,7 @@ const general = [
       "Adele",
       "Emperor"
     ],
+    "category": "general",
   },
   {
     "question": "What is the closest planet to our solar system's sun?",
@@ -143,6 +151,7 @@ const general = [
       "Earth",
       "Mercury"
     ],
+    "category": "general",
   },
   {
     "question": "In past times, what would a gentleman keep in his fob pocket?",
@@ -153,6 +162,7 @@ const general = [
       "Notebook",
       "Watch"
     ],
+    "category": "general",
   }
 ]
 

@@ -1,8 +1,8 @@
-POST http://localhost:3001/api/quizes 
+POST http://localhost:3001/api/quizzes 
 content-type: application/json
 
     {
-      "question": "In which fast food chain can you order a Jamocha Shake?",
+      "question": "QQQQ TEST test?",
     "correct_answer": "Arby’s",
     "answers": [
       "McDonald’s",
