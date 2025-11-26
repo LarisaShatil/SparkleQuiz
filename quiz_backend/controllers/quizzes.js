@@ -1,6 +1,6 @@
 const quizzesRouter = require('express').Router()
 // const middleware = require('../utils/middleware')
-const Quiz = require('../models/quize')
+const Quiz = require('../models/quiz')
 
 
 quizzesRouter.get('/', async (req, res) => {
@@ -37,6 +37,7 @@ quizzesRouter.post('/', async (req, res) => {
   // await Quiz.insertMany(general)
 
   const question = req.body
+
   const newQuestion = new Quiz(question)
   const savedQuestion = await newQuestion.save()
   res.status(201).json(savedQuestion)

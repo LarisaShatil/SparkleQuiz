@@ -8,7 +8,7 @@ usersRouter.get('/', async (req, res) => {
 })
 
 usersRouter.post('/', async (req, res) => {
-  const { login, name, password } = req.body
+  const { login, name, role, password } = req.body
 
   if (!login || !name || !password) {
     return res.status(400).json({
@@ -22,12 +22,24 @@ usersRouter.post('/', async (req, res) => {
   const user = new User({
     login,
     name,
+    role,
     passwordHash
   })
 
   const savedUser = await user.save()
 
   res.status(201).json(savedUser)
+})
+
+usersRouter.delete('/:id', async (req, res) => {
+  const user = await User.findById(req.params.id)
+
+  if (!user) {
+    return res.status(404).json({ error: 'User is not found' })
+  }
+
+  await User.findByIdAndDelete(req.params.id)
+  res.status(204).end()
 })
 
 module.exports = usersRouter

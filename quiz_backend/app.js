@@ -1,13 +1,10 @@
 const express = require('express')
-const general = require('./general')
 const mongoose = require('mongoose')
 const config = require('./utils/config')
 const logger = require('./utils/logger')
 const middleware = require('./utils/middleware')
 const quizzesRouter = require('./controllers/quizzes')
 const usersRouter = require('./controllers/users')
-
-// const Quiz = require('./models/quize')
 
 const app = express()
 app.use(express.json())

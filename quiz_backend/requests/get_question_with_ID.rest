@@ -1,3 +1,0 @@
-GET http://localhost:3001/api/quizzes/692595990217b82210cdb806
-
-
