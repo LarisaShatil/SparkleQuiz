@@ -1,12 +1,12 @@
 POST http://localhost:3001/api/quizzes 
 content-type: application/json
 
-    {
-      "question": "QQQQ TEST test?",
-    "correct_answer": "Arby’s",
-    "answers": [
-      "McDonald’s",
-      "Burger King",
-      "Wendy’s",
-      "Arby’s"]
-  }
+  #   {
+  #     "question": "QQQQ TEST test?",
+  #   "correct_answer": "Arby’s",
+  #   "answers": [
+  #     "McDonald’s",
+  #     "Burger King",
+  #     "Wendy’s",
+  #     "Arby’s"]
+  # }

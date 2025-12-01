@@ -19,7 +19,11 @@ const quizSchema = mongoose.Schema({
       message: 'Answers must contain 4 items'
     }
   },
-  category: String
+  category: {
+    type: String,
+    enum: ['general', 'celebrities', 'animal', 'history'],
+    default: 'general'
+  }
 })
 
 quizSchema.set('toJSON', {

@@ -34,8 +34,6 @@ quizzesRouter.delete('/:id', async (req, res) => {
 })
 
 quizzesRouter.post('/', async (req, res) => {
-  // await Quiz.insertMany(general)
-
   const question = req.body
 
   const newQuestion = new Quiz(question)
