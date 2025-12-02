@@ -2,8 +2,8 @@
 const Container = (props) => {
 
   return (
-    <div className="h-screen p-4">
-      <div className="ml-auto mr-auto w-1/2">
+    <div className=" h-screen bg-coverh-screen p-4 bg-center bg-no-repeat" style={{ "background": "url('../src/assets/bg-quiz.png"}}>
+      <div className="ml-auto mr-auto lg:w-1/4 md:w-1/3 sm:w-1/2 w-full">
       {props.children}
       </div>
 
