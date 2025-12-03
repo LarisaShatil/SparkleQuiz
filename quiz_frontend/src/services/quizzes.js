@@ -8,7 +8,6 @@ const getAll = async () => {
   return res.data
 }
 
-
 export default {
   getAll,
 }
