@@ -39,6 +39,8 @@ const App = () => {
     const newValue = e.target.value
     setSelectedOption(newValue)
     setSelectedQuiz(quizzes.filter((q) => q.category === newValue))
+    setScore(0)
+    setShowFeedback(false)
   }
 
   const handleAnswer = (option) => {
@@ -62,6 +64,14 @@ const App = () => {
     }
   }
 
+  const restartQuiz = () => {
+    setCurrentQuestion(0)
+    setScore(0)
+    setSelectedAnswer(null)
+    setShowFeedback(false)
+    setIsFinished(false)
+  }
+
   return (
     <>
       <Container>
@@ -81,30 +91,35 @@ const App = () => {
             selectedOption={selectedOption}
           />
         )}
-        {selectedQuiz.length > 0 && (
+        {selectedQuiz.length > 0 && !isFinished && (
           <>
-            <UserScore score={ score} />
             <QuizCard
               showFeedback={showFeedback}
               onAnswer={handleAnswer}
               quiz={selectedQuiz[currentQuestion]}
+              current={currentQuestion}
+              total={selectedQuiz.length}
             />
+            <div className="flex justify-center items-center">
+              {showFeedback && (
+                <button
+                  onClick={bringNextQuestion}
+                  className=" mt-4  rounded-sm font-semibold
+              bg-linear-to-r from-violet-900 to-pink-400
+              py-2 px-6 shadow-lg hover:from-violet-600 hover:to-pink-300
+              hover:text-violet-900 transition-colors duration-300"
+                >
+                  {currentQuestion + 1 < selectedQuiz.length
+                    ? 'Continue'
+                    : 'See results'}
+                </button>
+              )}
+            </div>
           </>
         )}
-        <div>
-          {showFeedback && (
-            <button
-              onClick={bringNextQuestion}
-              className="w-full mt-4  rounded-sm font-bold bg-white 
-        text-violet-500 hover:bg-pink-300 hover:text-violet-800 py-2 
-        transition-colors duration-300"
-            >
-              {currentQuestion + 1 < selectedQuiz.length
-                ? 'Continue'
-                : 'See results'}
-            </button>
-          )}
-        </div>
+        {selectedQuiz.length > 0 && isFinished && (
+          <UserScore score={score} total={selectedQuiz.length} />
+        )}
       </Container>
     </>
   )

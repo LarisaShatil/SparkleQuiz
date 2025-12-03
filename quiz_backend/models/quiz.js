@@ -21,7 +21,7 @@ const quizSchema = mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ['general', 'celebrities', 'animal', 'history'],
+    enum: ['general', 'celebrities', 'animals', 'history'],
     default: 'general'
   }
 })

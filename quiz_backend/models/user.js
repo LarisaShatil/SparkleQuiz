@@ -1,13 +1,14 @@
 const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema({
-  login: {
-    type: String,
-    minlength: 3,
-    required: true,
-    unique: true
-  },
   name: String,
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    match: [/^\S+@\S+\.\S+$/, 'Invalid email format']
+  },
   role: {
     type: String,
     enum: ['user', 'admin'],

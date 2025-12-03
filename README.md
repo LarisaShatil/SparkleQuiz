@@ -12,13 +12,13 @@
 - id: ObjectId;
 - question: String;
 - answers: Array of Strings;
-- correctAnswer: String;
+- correct_answer: String;
 
 2. User:
 - id: ObjectId;
 - username: String;
 - passwordHash: String;
-- role: String ('regular', 'admin');
+- role: String ('user', 'admin');
 - highScore: Number of Correct Answers.
 
 
@@ -26,3 +26,7 @@
 1. /api/users/signup;
 2. /api/users/login;
 3. /api/quizes;
+
+
+### Developing...:
+![alt text](image.png)

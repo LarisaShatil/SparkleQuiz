@@ -1,13 +1,13 @@
 POST http://localhost:3001/api/quizzes 
 content-type: application/json
 
-#     {
-#       "question": "Which modern day country is the region that was known as Phrygia in ancient times?",
-#     "correct_answer": "Turkey",
-#     "answers": [
-#       "Syria",
-# "Greece",
-# "Turkey",
-# "Egypt"],
-#       "category": "history"
-#   }
+    {
+      "question": "How many teeth does an adult rabbit have?",
+    "correct_answer": "28",
+    "answers": [
+"30",
+"26",
+"24",
+"28"],
+      "category": "animals"
+  }

@@ -1,10 +1,9 @@
-const UserScore = ({score}) => {
+const UserScore = ({ score, total }) => {
   return (
-    <div
-      className="p-2 mb-2 bg-violet-800/50 
-            rounded-md backdrop-filter backdrop-blur-sm ">
-      <p className="text-bold">Your score: {score}</p>
-    </div>
+          <div className='flex flex-col justify-between items-center pt-4 mb-4'>
+            <h2 className='text-3xl font-bold mb-4'>Quiz completed!</h2>
+            <p className='text-xl font-semibold'>Your score <span>{score}</span> out of {total }</p>
+          </div>
   )
 }
 

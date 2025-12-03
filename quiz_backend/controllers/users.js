@@ -8,9 +8,9 @@ usersRouter.get('/', async (req, res) => {
 })
 
 usersRouter.post('/', async (req, res) => {
-  const { login, name, role, password } = req.body
+  const { name, email, role, password } = req.body
 
-  if (!login || !name || !password) {
+  if (!name || !email || !password) {
     return res.status(400).json({
       error: 'content missing'
     })
@@ -20,8 +20,8 @@ usersRouter.post('/', async (req, res) => {
   const passwordHash = await bcrypt.hash(password, saltRounds)
 
   const user = new User({
-    login,
     name,
+    email,
     role,
     passwordHash
   })
