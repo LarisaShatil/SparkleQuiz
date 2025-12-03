@@ -28,5 +28,5 @@
 3. /api/quizes;
 
 
-### Developing...:
+### Developing...
 ![alt text](image.png)
