@@ -3,7 +3,7 @@
 ## Initial Plan:
 1. Backend Core (Express & Database);
 
-2. Frontend Setup (React);
+2. Frontend Setup (React & Vite & Tailwind);
 
 3. Frontend/Backend Integration.
 
@@ -16,7 +16,8 @@
 
 2. User:
 - id: ObjectId;
-- username: String;
+- name: String;
+- email: String;
 - passwordHash: String;
 - role: String ('user', 'admin');
 - highScore: Number of Correct Answers.
@@ -29,4 +30,5 @@
 
 
 ### Developing...:
+![alt text](image-1.png)
 ![alt text](image.png)

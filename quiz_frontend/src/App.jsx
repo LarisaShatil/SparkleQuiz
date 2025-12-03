@@ -22,7 +22,7 @@ const App = () => {
   const [showFeedback, setShowFeedback] = useState(false)
   // Login / Registration
   const [accountExists, setAccountExists] = useState(true)
-  const [user, setUser] = useState(true)
+  const [user, setUser] = useState(false)
 
   useEffect(() => {
     quizService.getAll().then((quizzes) => {
@@ -75,7 +75,7 @@ const App = () => {
   return (
     <>
       <Container>
-        <h1 className="text-4xl font-semibold p-4 text-white text-center">
+        <h1 className="text-4xl font-semibold p-4 mb-4 text-white text-center">
           Quiz Time
         </h1>
         {!user &&
