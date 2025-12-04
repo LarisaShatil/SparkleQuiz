@@ -32,3 +32,9 @@
 ### Developing...:
 ![alt text](image-1.png)
 ![alt text](image.png)
+
+### Next step:
+- login / logout the user
+- save (rewrite?) the score in DB (add save btn to UserScore)
+- total dashboard for top users
+- *admin part
