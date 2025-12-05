@@ -17,7 +17,8 @@ select {
   cursor: pointer;
 }
 
-@layer base {
+
+/* @layer base {
   select {
     @apply bg-neutral-900/60 text-slate-200 border border-fuchsia-500/40 rounded-md px-3 py-2 shadow-md shadow-fuchsia-500/30 backdrop-blur-sm;
   }
@@ -37,4 +38,4 @@ select {
   select option:hover {
     @apply bg-fuchsia-700 text-white;
   }
-}
+} */

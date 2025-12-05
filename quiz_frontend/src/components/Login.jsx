@@ -1,33 +1,69 @@
+import { useState } from 'react'
 import Wrapper from './Wrapper'
+import loginService from '../services/login'
 
-const Login = ({ toggleForms }) => {
+const Login = ({ setUser, toggleForms }) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const user = await loginService.login({ email, password })
+      // window.localStorage.setItem('loggedBlogUser', JSON.stringify(user))
+      // blogService.setToken(user.token)
+      console.log('user ------', user)
+      setUser(user)
+      setEmail('')
+      setPassword('')
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   return (
     <Wrapper>
       <h1 className="text-xl  font-bold text-center mb-6">Login</h1>
-      <form action="">
+      <form action="" onSubmit={handleSubmit}>
         <div className="relative my-4">
           <input
+            id="email"
             type="email"
-            className="block w-1/1 pt-1.5 py-2.3 px-0 text-m bg-transparent border-0 border-b-2 border-gray-400 appearance-none dark:focus:border-violet-600 focus:outline-none peer"
+            autoComplete="off"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value)
+            }}
+            className="block w-full pt-1.5 py-2.3 px-0 text-m bg-transparent border-0 border-b-2 
+            border-gray-400 appearance-none dark:focus:border-violet-600 focus:outline-none peer"
           />
           <label
-            htmlFor=""
-            className="absolute left-0 text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-left peer-focus:left-0 peer-focus:text-violet-700 peer-focus:dark:text-violet-300 `peer-placeholder-shown:-translate-y-0` peer-focus:scale-75 peer-focus:-translate-y-6"
-            placeholder=""
+            htmlFor="email"
+            className="absolute left-0 text-sm duration-300 transform -translate-y-6 scale-75 
+            top-3 -z-10 origin-left peer-focus:left-0 peer-focus:text-violet-700 peer-focus:dark:text-violet-300 
+            peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Your email
           </label>
         </div>
         <div className="relative my-4">
           <input
+            id="password"
             type="password"
+            autoComplete="off"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value)
+            }}
             required
-            className="block w-1/1 pt-1.5 text-m bg-transparent border-0 border-b-2 border-gray-400 appearance-none dark:focus:border-violet-600 focus:outline-none peer"
+            className="block w-full pt-1.5 text-m bg-transparent border-0 border-b-2 border-gray-400 
+            appearance-none dark:focus:border-violet-600 focus:outline-none peer"
           />
           <label
-            htmlFor=""
-            className="absolute left-0 text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-left peer-focus:left-0 peer-focus:text-violet-700 peer-focus:dark:text-violet-300 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            placeholder=""
+            htmlFor="password"
+            className="absolute left-0 text-sm duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-left 
+            peer-focus:left-0 peer-focus:text-violet-700 peer-focus:dark:text-violet-300 
+            peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Your password
           </label>
@@ -37,11 +73,11 @@ const Login = ({ toggleForms }) => {
             <input
               type="checkbox"
               required
-              name=""
-              id=""
+              name="remember me"
+              id="remember me"
               className="accent-amber-500 w-4 h-4"
             />
-            <label htmlFor="Remember me">Remember me</label>
+            <label htmlFor="remember me">Remember me</label>
           </div>
           <span className="text-xs text-violet-500">Forgot Password?</span>
         </div>
@@ -54,12 +90,13 @@ const Login = ({ toggleForms }) => {
         <div className="text-xs">
           <span>
             New here?
-            <a
+            <button
+              type="button"
               onClick={toggleForms}
               className="ml-4 font-bold text-violet-500 hover:text-amber-500"
             >
               Create an account
-            </a>
+            </button>
           </span>
         </div>
       </form>

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import Confetti from 'react-confetti'
-import quizService from './services/quizzes'
 import Login from './components/Login'
 import Register from './components/Register'
 import Container from './components/Container'
@@ -8,6 +7,7 @@ import QuizCard from './components/QuizCard'
 import SelectForm from './components/SelectForm'
 import UserScore from './components/UserScore'
 import ProgressBar from './components/ProgressBar'
+import quizService from './services/quizzes'
 
 const App = () => {
   // All quizzes
@@ -24,7 +24,7 @@ const App = () => {
   const [showFeedback, setShowFeedback] = useState(false)
   // Login / Registration
   const [accountExists, setAccountExists] = useState(true)
-  const [user, setUser] = useState(true)
+  const [user, setUser] = useState(false)
 
   useEffect(() => {
     quizService.getAll().then((quizzes) => {
@@ -85,9 +85,15 @@ const App = () => {
         </h1>
         {!user &&
           (accountExists === true ? (
-            <Login toggleForms={toggleForms} />
+            <Login
+              setUser={setUser}
+              toggleForms={toggleForms}
+            />
           ) : (
-            <Register toggleForms={toggleForms} />
+            <Register
+              setUser={setUser}
+              toggleForms={toggleForms}
+            />
           ))}
         {user && (
           <SelectForm
