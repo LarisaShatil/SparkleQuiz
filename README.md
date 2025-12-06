@@ -34,8 +34,8 @@
 ![alt text](image-1.png)
 - Quiz Crard:
 ![alt text](image.png)
-- Completion:
-![alt text](image-2.png)
+- Congratulations:
+![alt text](image-3.png)
 
 ### Next step:
 - ~~login / logout the user~~
