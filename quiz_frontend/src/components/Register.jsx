@@ -1,10 +1,10 @@
-import {useRef,useState,useEffect} from 'react'
+import {useState,useEffect} from 'react'
 import Wrapper from './Wrapper'
 import userService from '../services/users'
 
 
 
-const Register = ({ toggleForms, setUser}) => {
+const Register = ({ toggleForms}) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -18,11 +18,12 @@ const Register = ({ toggleForms, setUser}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    console.log(name, email, password)
     try {
-      const newUser = await userService.register({ name, email, password })
-      setUser(newUser)
-    } catch (e) {
-      console.log('ERROR---->', e)
+      await userService.register({ name, email, password })
+      toggleForms()
+    } catch (err) {
+      console.log('ERROR---->', err)
     }
   }
 
@@ -135,12 +136,12 @@ const Register = ({ toggleForms, setUser}) => {
         <div className="text-xs">
           <span>
             Already have an Account?
-            <a
-              onClick={toggleForms}
+            <button
+              type="button"
               className="ml-4 font-bold text-violet-500 hover:text-amber-500"
             >
               Login
-            </a>
+            </button>
           </span>
         </div>
       </form>

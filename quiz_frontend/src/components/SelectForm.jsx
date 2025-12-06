@@ -14,7 +14,7 @@ const SelectForm = ({ categories, handleSelectOption, selectedOption }) => {
         onChange={handleSelectOption}
         value={selectedOption}
       >
-        <option value="" disabled>
+        <option value="" disabled defaultValue>
           Select a quiz
         </option>
         {categories.map((category) => (

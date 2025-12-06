@@ -11,7 +11,7 @@ const loginRouter = require('./controllers/login')
 const app = express()
 app.use(express.json())
 app.use(cors())
-
+app.use(middleware.tokenExtractor)
 app.use('/api/login', loginRouter)
 app.use('/api/quizzes', quizzesRouter)
 app.use('/api/users', usersRouter)
@@ -27,7 +27,9 @@ mongoose.connect(config.MONGODB_URI)
     logger.error('!!! error connection to MongoDB: ', err.message)
   })
 
-app.use(middleware)
+app.use(middleware.requestLogger)
+app.use(middleware.uknkownEndpoint)
+app.use(middleware.errorHandler)
 
 
 module.exports = app

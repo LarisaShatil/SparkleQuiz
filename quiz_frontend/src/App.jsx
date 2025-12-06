@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import Confetti from 'react-confetti'
 import Login from './components/Login'
 import Register from './components/Register'
 import Container from './components/Container'
@@ -7,6 +6,7 @@ import QuizCard from './components/QuizCard'
 import SelectForm from './components/SelectForm'
 import UserScore from './components/UserScore'
 import ProgressBar from './components/ProgressBar'
+import SmoothConfetti from './components/SmoothConfetti'
 import quizService from './services/quizzes'
 
 const App = () => {
@@ -31,6 +31,15 @@ const App = () => {
       setQuizzes(quizzes)
       setCategories([...new Set(quizzes.flatMap((quiz) => quiz.category))])
     })
+  }, [])
+
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedUser')
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON)
+      setUser(user)
+      quizService.setToken(user.token)
+    }
   }, [])
 
   const toggleForms = () => {
@@ -78,22 +87,16 @@ const App = () => {
 
   return (
     <>
+      {showCongratulations && <SmoothConfetti />}
       <Container>
-        {showCongratulations && <Confetti />}
         <h1 className="text-4xl font-semibold p-4 mb-4 text-white text-center">
           Quiz Time
         </h1>
         {!user &&
           (accountExists === true ? (
-            <Login
-              setUser={setUser}
-              toggleForms={toggleForms}
-            />
+            <Login setUser={setUser} toggleForms={toggleForms} />
           ) : (
-            <Register
-              setUser={setUser}
-              toggleForms={toggleForms}
-            />
+            <Register setUser={setUser} toggleForms={toggleForms} />
           ))}
         {user && (
           <SelectForm

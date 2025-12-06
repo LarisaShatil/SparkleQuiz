@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Wrapper from './Wrapper'
 import loginService from '../services/login'
+import quizService from '../services/quizzes'
 
 const Login = ({ setUser, toggleForms }) => {
   const [email, setEmail] = useState('')
@@ -10,9 +11,8 @@ const Login = ({ setUser, toggleForms }) => {
     e.preventDefault()
     try {
       const user = await loginService.login({ email, password })
-      // window.localStorage.setItem('loggedBlogUser', JSON.stringify(user))
-      // blogService.setToken(user.token)
-      console.log('user ------', user)
+      window.localStorage.setItem('loggedUser', JSON.stringify(user))
+      quizService.setToken(user.token)
       setUser(user)
       setEmail('')
       setPassword('')
@@ -39,9 +39,9 @@ const Login = ({ setUser, toggleForms }) => {
           />
           <label
             htmlFor="email"
-            className="absolute left-0 text-sm duration-300 transform -translate-y-6 scale-75 
+            className="absolute left-0 text-m duration-300 transform -translate-y-6 scale-75 
             top-3 -z-10 origin-left peer-focus:left-0 peer-focus:text-violet-700 peer-focus:dark:text-violet-300 
-            peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 "
           >
             Your email
           </label>

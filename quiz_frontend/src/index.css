@@ -4,38 +4,24 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
 
-  /* color-scheme: light dark; */
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url("../src/assets/bg-quiz.png");
+  background-size: cover;
+  /* Full screen */
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+}
+
 button,
 select {
   cursor: pointer;
 }
-
-
-/* @layer base {
-  select {
-    @apply bg-neutral-900/60 text-slate-200 border border-fuchsia-500/40 rounded-md px-3 py-2 shadow-md shadow-fuchsia-500/30 backdrop-blur-sm;
-  }
-
-  select:focus {
-    @apply outline-none border-fuchsia-400 shadow-fuchsia-400/50;
-  }
-
-  select option {
-    @apply bg-neutral-900 text-slate-200 py-2;
-  }
-
-  select option:checked {
-    @apply bg-fuchsia-600 text-white;
-  }
-
-  select option:hover {
-    @apply bg-fuchsia-700 text-white;
-  }
-} */

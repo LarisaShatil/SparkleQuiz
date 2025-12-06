@@ -1,6 +1,6 @@
 const UserScore = ({ quiz, score, total }) => {
   return (
-    <div className="flex flex-col justify-between items-center pt-4 mb-4">
+    <div className="flex flex-col justify-between items-center pt-4 mb-4 text-white">
       <h2 className="text-3xl text-center font-bold mb-4">
         Quiz <span className="text-pink-400">{quiz}</span> is completed!
       </h2>
