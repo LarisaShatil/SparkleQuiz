@@ -24,17 +24,21 @@
 
 
 ### Routes:
-1. /api/users/signup;
-2. /api/users/login;
+1. /api/users;
+2. /api/login;
 3. /api/quizes;
 
 
 ### Developing...:
+- Registration Form:
 ![alt text](image-1.png)
+- Quiz Crard:
 ![alt text](image.png)
+- Completion:
+![alt text](image-2.png)
 
 ### Next step:
-- login / logout the user
+- ~~login / logout the user~~
 - save (rewrite?) the score in DB (add save btn to UserScore)
 - total dashboard for top users
 - *admin part

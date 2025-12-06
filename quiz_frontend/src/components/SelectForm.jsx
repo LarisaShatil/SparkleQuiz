@@ -5,20 +5,20 @@ const SelectForm = ({ categories, handleSelectOption, selectedOption }) => {
         Choose your category
       </h2>
       <select
-        className="w-48 bg-neutral-900/60 text-slate-200 border border-violet-400/40 rounded-md p-2 px-3 py-2 shadow-md shadow-fuchsia-500/30
-    backdrop-blur-sm
-    focus:outline-none
-    focus:border-fuchsia-400
-    focus:shadow-fuchsia-400/50
-    transition"
+        className="w-48 bg-neutral-900/60 text-slate-200 border 
+        border-violet-400/40 rounded-md p-2 px-3 py-2 shadow-md 
+        shadow-fuchsia-500/30 backdrop-blur-sm focus:outline-none
+    focus:border-fuchsia-400 focus:shadow-fuchsia-400/50 transition"
         onChange={handleSelectOption}
         value={selectedOption}
       >
-        <option value="" disabled defaultValue>
+        <option value="default" disabled selected>
           Select a quiz
         </option>
         {categories.map((category) => (
-          <option key={category} value={category} className="text-violet-300">
+          <option key={category}
+            value={category}
+            className="text-violet-300">
             {category}
           </option>
         ))}

@@ -2,19 +2,22 @@ import { useState, useEffect } from 'react'
 import Login from './components/Login'
 import Register from './components/Register'
 import Container from './components/Container'
+import MainTitle from './components/MainTitle'
 import QuizCard from './components/QuizCard'
 import SelectForm from './components/SelectForm'
 import UserScore from './components/UserScore'
 import ProgressBar from './components/ProgressBar'
 import SmoothConfetti from './components/SmoothConfetti'
 import quizService from './services/quizzes'
+import QuizButton from './components/QuizButton'
+import Header from './components/Header'
 
 const App = () => {
   // All quizzes
   const [quizzes, setQuizzes] = useState([])
   const [categories, setCategories] = useState([])
   // Selected quiz
-  const [selectedQuizName, setSelectedQuizName] = useState('')
+  const [selectedQuizName, setSelectedQuizName] = useState(false)
   const [selectedQuestions, setSelectedQuestions] = useState([])
   // Quiz progress
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -37,8 +40,8 @@ const App = () => {
     const loggedUserJSON = window.localStorage.getItem('loggedUser')
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON)
-      setUser(user)
       quizService.setToken(user.token)
+      setUser(user)
     }
   }, [])
 
@@ -47,8 +50,11 @@ const App = () => {
   }
 
   const restartQuiz = () => {
+    setSelectedQuestions([])
     setCurrentQuestion(0)
     setScore(0)
+    setSelectedQuizName(false)
+
     setSelectedAnswer(null)
     setShowFeedback(false)
     setIsFinished(false)
@@ -56,9 +62,10 @@ const App = () => {
 
   const handleSelectOption = (e) => {
     const newValue = e.target.value
+    restartQuiz()
     setSelectedQuizName(newValue)
     setSelectedQuestions(quizzes.filter((q) => q.category === newValue))
-    restartQuiz()
+
   }
 
   const handleAnswer = (option) => {
@@ -89,21 +96,26 @@ const App = () => {
     <>
       {showCongratulations && <SmoothConfetti />}
       <Container>
-        <h1 className="text-4xl font-semibold p-4 mb-4 text-white text-center">
-          Quiz Time
-        </h1>
+        <MainTitle />
         {!user &&
           (accountExists === true ? (
             <Login setUser={setUser} toggleForms={toggleForms} />
           ) : (
-            <Register setUser={setUser} toggleForms={toggleForms} />
+            <Register toggleForms={toggleForms} />
           ))}
         {user && (
-          <SelectForm
-            categories={categories}
-            handleSelectOption={handleSelectOption}
-            selectedQuizName={selectedQuizName}
-          />
+          <>
+            <Header
+              name={user.name}
+              setUser={setUser}
+              clearFields={restartQuiz}
+            />
+            <SelectForm
+              categories={categories}
+              handleSelectOption={handleSelectOption}
+              selectedQuizName={selectedQuizName}
+            />
+          </>
         )}
         {selectedQuestions.length > 0 && !isFinished && (
           <>
@@ -122,17 +134,11 @@ const App = () => {
             />
             <div className="flex justify-center items-center">
               {showFeedback && (
-                <button
-                  onClick={bringNextQuestion}
-                  className=" mt-4  rounded-sm font-semibold
-              bg-linear-to-r from-violet-900 to-pink-400
-              py-2 px-6 shadow-lg hover:from-violet-600 hover:to-pink-300
-              hover:text-violet-900 transition-colors duration-300"
-                >
-                  {currentQuestion + 1 < selectedQuestions.length
-                    ? 'Continue'
-                    : 'See results'}
-                </button>
+                <QuizButton
+                  bringNext={bringNextQuestion}
+                  currentQuestion={currentQuestion}
+                  total={selectedQuestions.length}
+                />
               )}
             </div>
           </>

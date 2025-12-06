@@ -1,8 +1,12 @@
 const Container = (props) => {
   return (
-      <div className="ml-auto mr-auto p-4 lg:w-1/3 md:w-1/2 sm:w-1/2 w-full">
-        {props.children}
-      </div>
+    <div
+      className="mx-auto w-full 
+      p-4 pt-18  lg:w-1/3 
+      sm:w-2/3"
+    >
+      {props.children}
+    </div>
   )
 }
 

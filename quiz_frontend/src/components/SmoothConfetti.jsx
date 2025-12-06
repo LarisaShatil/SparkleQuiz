@@ -12,10 +12,10 @@ const SmoothConfetti = () => {
                 clearInterval(interval)
                 return 0
               }
-              return p - 10
+              return p - 40
             })
           }, 200)
-        }, 60000)
+        }, 6000)
   
         return () => clearTimeout(timer)
       }, [])

@@ -139,6 +139,7 @@ const Register = ({ toggleForms}) => {
             <button
               type="button"
               className="ml-4 font-bold text-violet-500 hover:text-amber-500"
+              onClick={toggleForms}
             >
               Login
             </button>
